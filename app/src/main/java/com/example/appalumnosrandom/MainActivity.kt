@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         btnReiniciar = findViewById(R.id.btnReiniciar)
 
         btnSiguiente.setOnClickListener { mostrarAlumnoRandom() }
-
+        btnReiniciar.setOnClickListener { reiniciarLista() }
     }
 
     private fun mostrarAlumnoRandom() {
@@ -43,5 +43,11 @@ class MainActivity : AppCompatActivity() {
 
         tvAlumno.text = alumnoSeleccionado
         alumnosDisponibles.removeAt(indice)
+    }
+
+    private fun reiniciarLista() {
+        alumnosDisponibles = alumnosOriginal.toMutableList()
+        tvAlumno.text = "Lista reiniciada"
+        Toast.makeText(this, "Se reinició la lista", Toast.LENGTH_SHORT).show()
     }
 }
